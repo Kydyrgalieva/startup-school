@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <title>Бақыршық орта мектебі</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Times New Roman', serif;
+            background-color: #b3e0ff;
+        }
+        header {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        header img {
+            width: 200px;
+        }
+        header h1 {
+            margin-top: 20px;
+            color: #004080;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #0073e6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .content {
+            display: none;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .tab {
+            flex: 1;
+            min-width: 120px;
+            padding: 15px;
+            margin: 5px;
+            background-color: #0099ff;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .tab:hover {
+            background-color: #0073e6;
+        }
+        .tab-content {
+            background-color: #e6f2ff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .school-img {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="images/logo.jpeg" alt="Мектеп логотипі">
+    <h1>Бақыршық орта мектебі</h1>
+    <button class="btn" onclick="showContent()">Толығырақ көру</button>
+</header>
+
+<div class="content" id="mainContent">
+    <div class="tabs">
+        <div class="tab" onclick="showTab('students')">Оқушылар</div>
+        <div class="tab" onclick="showTab('teachers')">Мұғалімдер</div>
+        <div class="tab" onclick="showTab('clubs')">Үйірмелер</div>
+        <div class="tab" onclick="showTab('school')">Мектеп</div>
+        <div class="tab" onclick="showTab('announcements')">Хабарландыру</div>
+    </div>
+
+    <!-- Оқушылар -->
+    <div class="tab-content" id="students" style="display:none;">
+        <p>Біздің мектепте <b>480 оқушы</b> бар.</p>
+
+        <button onclick="showActive()" class="btn" style="margin-top:10px;">Белсенділер</button>
+
+        <table id="activeTable" border="1" cellpadding="10" cellspacing="0"
+            style="margin-top:15px; width:100%; display:none; border-collapse: collapse;">
+            <tr style="background-color:#0073e6; color:white;">
+                <th>Аты-жөні</th>
+                <th>Сыныбы</th>
+            </tr>
+            <tr>
+                <td>Қыдырғалиева Дильназ</td><td>11 «А»</td>
+            </tr>
+            <tr>
+                <td>Әбілдаш Сымбат</td><td>11 «А»</td>
+            </tr>
+            <tr>
+                <td>Серікхан Нұрай</td><td>11 «А»</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function showActive() {
+            var table = document.getElementById("activeTable");
+            table.style.display = table.style.display === "none" ? "table" : "none";
+        }
+    </script>
+
+    <!-- Мұғалімдер -->
+    <div class="tab-content" id="teachers" style="display:none;">
+        <table border="1" cellpadding="10" cellspacing="0" style="width:100%; border-collapse: collapse;">
+            <tr style="background-color:#0073e6; color:white;">
+                <th>Аты-жөні</th>
+                <th>Пәні</th>
+            </tr>
+            <tr>
+                <td>Алимбетова Айжан Бекказыевна</td><td>Мектеп директоры м.а</td>
+            </tr>
+            <tr>
+                <td>Нургалиева Айгерім Кафиолаевна</td><td>Оқу ісінің меңгерушісі</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Үйірмелер -->
+    <div class="tab-content" id="clubs" style="display:none;">
+        <p>Мектептегі үйірмелер:</p>
+        <ul>
+            <li>Робототехника</li>
+            <li>Бокс</li>
+            <li>Волейбол</li>
+            <li>Домбыра</li>
+        </ul>
+    </div>
+
+    <!-- Мектеп -->
+    <div class="tab-content" id="school" style="display:none;">
+        <img class="school-img" src="images/мектепсырты.jpeg" alt="Мектеп сыртқы суреті">
+        <img class="school-img" src="images/коридор(2).jpeg" alt="Мектеп іші">
+        <img class="school-img" src="images/спортзал.jpeg" alt="Спортзал">
+        <img class="school-img" src="images/кітапхана.jpeg" alt="Кітапхана">
+        <img class="school-img" src="images/асхана.jpeg" alt="Асхана">
+
+        <p>Біздің мектептің ішкі көрінісі.</p>
+    </div>
+
+    <!-- Хабарландыру -->
+    <div class="tab-content" id="announcements" style="display:none;">
+        <ul>
+            <li>26.11.2025 StartUp</li>
+            <li>27.11.2025 Мектепшілік пәндік олимпиада</li>
+            <li>28.11.2025 Психологиялық тренинг</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    function showContent() {
+        document.getElementById('mainContent').style.display = 'block';
+        window.scrollTo(0, 500);
+    }
+
+    function showTab(tabId) {
+        const tabs = ['students', 'teachers', 'clubs', 'school', 'announcements'];
+        tabs.forEach(id => {
+            document.getElementById(id).style.display = (id === tabId) ? 'block' : 'none';
+        });
+    }
+</script>
+
+</body>
+</html>
